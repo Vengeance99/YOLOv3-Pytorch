@@ -47,7 +47,7 @@ Finally, we use the `plot_boxes()` function to plot the bounding boxes and corre
 ![input image](/YOLOv3PyTorch/images/img2.png)
 ![result image](/YOLOv3PyTorch/images/result.png)
 
-YOLOv3 is fast, under cpu it took 2sec and this works well even in 30frame/s live video as well. Even though this model is useful to identify pedestrian, car, track , motorcycle on the road, however the bouding boxes have their limits: drawing boxes vehicles on a curvy road, forest or trees' or vechicles shadow. It is not easy to convery the true shape of an object. So that bouding boxes can acheive *"partial"* scene understanding. 
+YOLOv3 is fast, (under cpu it took 2sec in this project) and this works well even in 30frame/s live video. Even though this model is useful to identify pedestrians, cars, trucks, or motorcycles on the road, however the bouding boxes have their own limits: for example, drawing boxes over vehicles on a **curvy** road, over **forest** or trees' or vechicles **shadow** would be problmatic. It is not easy to convey the true shape of an object. So that bouding boxes can acheive *"partial"* scene understanding.
 
 ### Next Step
 - [x] YOLO tesnforflow 
