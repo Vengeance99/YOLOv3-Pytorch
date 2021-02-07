@@ -41,6 +41,6 @@ Once we have the bounding boxes of the objects found by YOLO, we can print the c
 Finally, we use the `plot_boxes()` function to plot the bounding boxes and corresponding object class labels found by YOLO in our image. If the `plot_labels` flag is set to `False` the display the bounding boxes is with no labels. This makes it easier to view the bounding boxes if `nms_thresh` is too low. The `plot_boxes()`function uses the same color to plot the bounding boxes of the same object class. However, to make all bounding boxes to be the same color, the `color` keyword can be set to the desired color. 
 
 ### result 
-![input image](/images/img2.png)
-![result image](/images/result.png)
+![input image](/YOLOv3PyTorch/images/img2.png)
+![result image](/YOLOv3PyTorch/images/result.png)
 
