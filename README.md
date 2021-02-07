@@ -2,25 +2,27 @@
 
 ### Introduction
 
-YOLO is a state-of-the-art, real-time object detection algorithm. In this notebook, we apply the YOLO algorithm to detect objects in images. Test images are located in the`./images/`folder.
+YOLO is a state-of-the-art, real-time object detection algorithm. We apply the YOLO algorithm to detect objects in images. Test images are located in the`./images/`folder.
 
 ### Importing Resources
 
-We will start by loading the required packages into Python. We will be using *OpenCV* to load our images, *matplotlib* to plot them, a`utils` module that contains some helper functions, and a modified version of *Darknet*. YOLO uses *Darknet*, an open source, deep neural network framework written by the creators of YOLO. The version of *Darknet* used in this notebook has been modified to work in PyTorch 0.4 and has been simplified because we won't be doing any training. Instead, we will be using a set of pre-trained weights that were trained on the Common Objects in Context (COCO) database. For more information on *Darknet*, please visit <a href="https://pjreddie.com/darknet/">Darknet</a>.
+We will start by loading the required packages into Python. We will be using *OpenCV* to load our images, *matplotlib* to plot them, a`utils` module that contains some helper functions, and a modified version of *Darknet*. YOLO uses *Darknet*, an open source, deep neural network framework written by the creators of YOLO. The version of *Darknet* used in this notebook has been modified to work in PyTorch 0.4 and has been simplified because we won't be doing any training. Instead, we will be using a set of pre-trained weights that were trained on the Common Objects in Context (COCO) database. 
 
 ### Setting Up The Neural Network
 
-We will be using the latest version of YOLO, known as YOLOv3. The `yolov3.cfg` file contains the network architecture used by YOLOv3 in the `/cfg/` folder. Similarly, the `yolov3.weights` file contains the pre-trained weights in the `/weights/` directory. Finally, the `/data/` directory, contains the `coco.names` file that has the list of the 80 object classes that the weights were trained to detect.
+We will be using the latest version of YOLO, known as YOLOv3. 
+* `yolov3.cfg` : contains the network architecture used by YOLOv3 in the `/cfg/` folder. 
+* `yolov3.weights` : contains the pre-trained weights in the `/weights/` directory. 
+* `/data/` directory: contains the `coco.names` file that has the list of the 80 object classes that the weights were trained to detect.
 
-In the code below, we start by specifying the location of the files that contain the neural network architecture, the pre-trained weights, and the object classes.  We then use *Darknet* to setup the neural network using the network architecture specified in the `cfg_file`. We then use the`.load_weights()` method to load our set of pre-trained weights into the model. Finally, we use the `load_class_names()` function, from the `utils` module, to load the 80 object classes.
+We start by specifying the location of the files that contain the neural network architecture, the pre-trained weights, and the object classes.  We then use *Darknet* to setup the neural network using the network architecture specified in the `cfg_file`. We then use the`.load_weights()` method to load our set of pre-trained weights into the model. Finally, we use the `load_class_names()` function, from the `utils` module, to load the 80 object classes.
 
-### `.print_network()` 
-The neural network used by YOLOv3 consists mainly of convolutional layers, with some shortcut connections and upsample layers. For a full description of this network please refer to the <a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf">YOLOv3 Paper</a>.
+The neural network used by YOLOv3 consists mainly of convolutional layers, with some shortcut connections and upsample layers. 
 
 ### Loading and Resizing Images
 we load our images using OpenCV's `cv2.imread()` function. Since, this function loads images as BGR we will convert our images to RGB so we can display them with the correct colors.
 
-The input size of the first layer of the network is 416 x 416 x 3. Since images have different sizes, we have to resize our images to be compatible with the input size of the first layer in the network. In the code below, we resize our images using OpenCV's `cv2.resize()` function. 
+The input size of the first layer of the network is 416 x 416 x 3. Since images have different sizes, we have to resize our images to be compatible with the input size of the first layer in the network. We resize our images using OpenCV's `cv2.resize()` function. 
 
 ### Non-Maximal Suppression Threshold
 
@@ -28,6 +30,7 @@ YOLO uses **Non-Maximal Suppression (NMS)** to only keep the best bounding box. 
 
 ###  IOU(Intersection Over Union)Threshold
 After removing all the predicted bounding boxes that have a low detection probability, the second step in NMS, is to select the bounding boxes with the highest detection probability and eliminate all the bounding boxes whose **Intersection Over Union (IOU)** value is higher than a given IOU threshold. for examples, if IOU threshold is set to `0.4`: this means that all predicted bounding boxes that have an IOU value greater than 0.4 with respect to the best bounding boxes will be removed.
+
 In the `utils` module the `nms` function performs the second step of Non-Maximal Suppression, and the `boxes_iou` function calculates the Intersection over Union of two given bounding boxes.
 
 ### Object Detection
@@ -44,3 +47,6 @@ Finally, we use the `plot_boxes()` function to plot the bounding boxes and corre
 ![input image](/YOLOv3PyTorch/images/img2.png)
 ![result image](/YOLOv3PyTorch/images/result.png)
 
+### Reference 
+[Darknet](https://pjreddie.com/darknet/)
+[YOLOv3 paper](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
