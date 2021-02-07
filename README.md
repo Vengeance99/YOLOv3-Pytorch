@@ -48,5 +48,11 @@ Finally, we use the `plot_boxes()` function to plot the bounding boxes and corre
 ![result image](/YOLOv3PyTorch/images/result.png)
 
 ### Reference 
-[Darknet](https://pjreddie.com/darknet/)
-[YOLOv3 paper](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
+* [Darknet](https://pjreddie.com/darknet/)
+* [Yolo](https://pjreddie.com/darknet/yolo/)
+* [Repository](https://github.com/pjreddie/darknet)
+* [YOLOv3 paper](https://arxiv.org/abs/1804.02767) 
+* [Yolo9000 2017](https://arxiv.org/abs/1612.08242)
+* [Yolo 2016](https://arxiv.org/abs/1506.02640)
+
+
