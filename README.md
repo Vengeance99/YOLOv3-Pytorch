@@ -50,7 +50,7 @@ Finally, we use the `plot_boxes()` function to plot the bounding boxes and corre
 YOLOv3 is fast, (under cpu it took 2sec in this project) and this works well even in 30frame/s live video. Even though this model is useful to identify pedestrians, cars, trucks, or motorcycles on the road, however the bouding boxes have their own limits: for example, drawing boxes over vehicles on a **curvy** road, over **forest** or trees' or vechicles **shadow** would be problmatic. It is not easy to convey the true shape of an object. So that bouding boxes can acheive *"partial"* scene understanding.
 
 ### Next Step
-- [x] [YOLO Object Detection in tesnforflow](https://github.com/tooth2/YOLOv3-Object-Detection)
+- [x] [YOLO Object Detection in Tensorflow/Keras](https://github.com/tooth2/Vehicle_Detection)
 - [x] [YOLOv3 Object Detection in Pytorch](https://github.com/tooth2/YOLOv3-Pytorch)
 - [x] [YOLOv3 Object Detection C++](https://github.com/tooth2/YOLOv3-Object-Detection)
 - [x] [SSD(Single shot detection)](https://github.com/tooth2/SSD-Object-Detection)
